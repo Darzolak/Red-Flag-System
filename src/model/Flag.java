@@ -3,6 +3,7 @@ package model;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import output.OutputWriter;
@@ -86,5 +87,13 @@ public abstract class Flag{
 	public String toString(){
 		return getClass().getSimpleName() + ": Priority is " + getPriority() + ", Requester is " + getRequester() + ".";
 	}
+
+	/**
+	 * A comparator that returns the comparison of two Flags Priorities
+	 */
+	//Task 1
+	public static Comparator<Flag> flagPriorityComparitor = (flag1, flag2) -> {
+		return flag1.getPriority().compareTo(flag2.getPriority());
+	};
 	
 }

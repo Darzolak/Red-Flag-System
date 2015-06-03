@@ -1,9 +1,6 @@
 package application;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 import output.TextWriter;
 import model.ResolvedBasicFlag;
@@ -23,8 +20,11 @@ public class SystemManager{
 		peopleManager = new PeopleManager();
 	}
 
+	//Task 1
 	public void addToCurrentMessageQueue(Flag pMessage){
-		currentFlags.add(pMessage);
+		Collection<Flag> tempCollection = new TreeSet<Flag>(currentFlags);
+		tempCollection.add(pMessage);
+		currentFlags = new PriorityQueue<Flag>(tempCollection);
 	}
 	
 	public void respondToFlag(Flag pFlag){

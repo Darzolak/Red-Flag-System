@@ -4,11 +4,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Stream;
 
 import model.Lecturer;
@@ -25,7 +21,8 @@ public class PeopleManager {
 	private Set<Student>students;
 	
 	public PeopleManager(){
-		programmers = new HashSet<Programmer>();
+		//Task 1
+		programmers = new TreeSet<Programmer>(Programmer.ProgrammerNameComparator);
 		lecturers = new HashSet<Lecturer>();
 		tutors = new HashSet<Tutor>();
 		students = new HashSet<Student>();
